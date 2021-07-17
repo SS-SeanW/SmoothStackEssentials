@@ -1,0 +1,23 @@
+1. LocalDateTime
+2. previous(dayOfWeek.THURSDAY)
+3. ZoneOffset gives the difference in hours from Greenwich mean time, while ZoneID gives rules to find the LocalDateTime
+4. You can convert instant to ZonedDateTime with ZoneDateTime.ofInstant. You can convert ZonedDateTime to Instant using ZonedDateTime.now().toInstant();
+
+5.  for(Month month : Month.values()) {
+		YearMonth mon = YearMonth.of(year, month);
+		System.out.print(ym.lengthOfMonth());
+	}
+	
+6.	Month month = null;
+	LocalDate date = Year.now().atMonth(month).atDay(1).with(Temporaladjusters.firstInMonth(DayOfWeek.MONDAY));
+	Month m = date.getMonth();
+	while(m == month) {
+		System.out.print(date);
+		date = date.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+		m = date.getMonth();
+	}
+	
+7. 	Calendar calendar = Calendar.getInstance();
+	if(calendar.get(Calendar.DAY_OF_MONTH) == 13 && calendar.get(calendar.DAY_OF_WEEK) == 5) {
+		return true;
+	}
